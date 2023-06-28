@@ -7,7 +7,7 @@ import warnings
 from tensorflow import keras
 warnings.filterwarnings("ignore")
 
-gen = keras.models.load_model('akshayajeyaprakash/distilled-learning-gan/main/Models/generator_100.mdl')
+gen = keras.models.load_model('generator_100')
 
 def inference_gan(gen):
     st.markdown(f"<center><h1 style='font-size: 40px;'>DISTILLED LEARNING GAN</h3></center>", unsafe_allow_html=True)
