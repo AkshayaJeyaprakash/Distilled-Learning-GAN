@@ -12,8 +12,8 @@ gen = keras.models.load_model('generator_100')
 def inference_gan(gen):
     st.markdown(f"<center><h1 style='font-size: 40px;'>DISTILLED LEARNING GAN</h3></center>", unsafe_allow_html=True)
     x = st.slider("Adjust x", min_value=0, max_value=100, value=5)
-    low_res_image_path = f"Data\\LR\\{x}.png"
-    high_res_image_path = f"Data\\HR\\{x}.png"
+    low_res_image_path = f"Data/LR/{x}.png"
+    high_res_image_path = f"Data/HR/{x}.png"
     
     lr_img = Image.open(low_res_image_path)
     lr_img = np.array(lr_img.resize((96, 96))) / 255.0
