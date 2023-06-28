@@ -30,7 +30,7 @@ def inference_gan(gen):
         st.image(gen_img, caption="Generated High-Resolution (HR)", use_column_width=True)
     psnr = peak_signal_noise_ratio(hr_img, gen_img)
     mse = mean_squared_error(hr_img, gen_img)
-    ssim = structural_similarity(hr_img, gen_img, win_size=3, multichannel=True)
+    ssim = structural_similarity(hr_img, gen_img, win_size=1, multichannel=True)
     st.markdown(f"<center><h4 style='font-size: 22px;'>PSNR: {psnr}</h3></center>", unsafe_allow_html=True)
     st.markdown(f"<center><h4 style='font-size: 22px;'>MSE: {mse}</h3></center>", unsafe_allow_html=True)
     st.markdown(f"<center><h4 style='font-size: 22px;'>SSIM: {ssim}</h3></center>", unsafe_allow_html=True)
