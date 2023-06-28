@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 from PIL import Image
 import matplotlib.pyplot as plt
-from skimage.metrics import peak_signal_noise_ratio, mean_squared_error, structural_similarity, compare_ssim
+from skimage.metrics import peak_signal_noise_ratio, mean_squared_error, structural_similarity
 import warnings
 from tensorflow import keras
 warnings.filterwarnings("ignore")
@@ -30,7 +30,7 @@ def inference_gan(gen):
         st.image(gen_img, caption="Generated High-Resolution (HR)", use_column_width=True)
     psnr = peak_signal_noise_ratio(hr_img, gen_img)
     mse = mean_squared_error(hr_img, gen_img)
-    ssim = compare_ssim(hr_img, gen_img, multichannel=True)
+    ssim = structural_similarity(hr_img, gen_img, multichannel=True)
     st.markdown(f"<center><h4 style='font-size: 22px;'>PSNR: {psnr}</h3></center>", unsafe_allow_html=True)
     st.markdown(f"<center><h4 style='font-size: 22px;'>MSE: {mse}</h3></center>", unsafe_allow_html=True)
     st.markdown(f"<center><h4 style='font-size: 22px;'>SSIM: {ssim}</h3></center>", unsafe_allow_html=True)
